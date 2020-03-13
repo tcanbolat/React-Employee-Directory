@@ -1,18 +1,15 @@
 import React from "react";
 
-
-
 function UserRows(props) {
-    return(
-        props.map(user => 
-            <tr>
-              <td>{user.name.first}</td>
-              <td>{user.phone}</td>
-              <td>{user.email}</td>
-              <td>{user.dob.age}</td>
-            </tr>
-          )
-    )
-  }
+  return props.users.map(user => (
+    <tr key={user.login.uuid}>
+      <td><img src={user.picture.thumbnail} alt='user headshot'/></td>
+      <td>{user.name.first + ' ' + user.name.last}</td>
+      <td>{user.phone}</td>
+      <td>{user.email}</td>
+      <td>{user.dob.age}</td>
+    </tr>
+  ));
+}
 
 export default UserRows;

@@ -3,16 +3,16 @@ import UserRows from './UserRows';
 import API from "../utils/API.js";
 
 class Table extends React.Component {
-
+  state = {
+    users: []
+  };
 
     componentDidMount() {
-      API.randomUsers().then(results => {
-        this.setState({
-          users: results.data.results
-        });
+      API.randomUsers().then(answer => {
+        this.setState({users: answer.data.results,})
       });
     }
-
+    
   render() {
     return (
       <div className="container">
@@ -20,6 +20,7 @@ class Table extends React.Component {
           <table className="table">
             <thead>
               <tr>
+                <th>image</th>
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Email</th>
@@ -35,5 +36,6 @@ class Table extends React.Component {
     );
   }
 }
+
 
 export default Table;
