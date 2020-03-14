@@ -22,3 +22,5 @@
     background-color: #4CAF50;
     color: white;
   }
+
+  #users th:hover {cursor: pointer;}
