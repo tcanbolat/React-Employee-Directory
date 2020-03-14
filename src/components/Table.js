@@ -1,6 +1,5 @@
 import React from "react";
 import UserRows from "./UserRows";
-// import TableHeader from "./TableHead";
 import API from "../utils/API.js";
 import "../styles/style.css";
 class Table extends React.Component {
@@ -8,7 +7,11 @@ class Table extends React.Component {
     super(props);
     this.state = {
       users: [],
-      sortDir: "asc"
+      sortDir: "asc",
+      userSearch: event => {
+        console.log(event.target.value);
+
+      }
     };
     this.sortBy = this.sortBy.bind(this);
   }
@@ -48,6 +51,9 @@ class Table extends React.Component {
     });
     this.setState({ sortDir: this.state.sortDir === "asc" ? "desc" : "asc" });
   }
+
+
+
   render() {
     return (
       <div className="table-responsive">
