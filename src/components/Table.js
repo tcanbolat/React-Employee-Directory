@@ -2,6 +2,8 @@ import React from "react";
 import UserRows from "./UserRows";
 import API from "../utils/API.js";
 import "../styles/style.css";
+import SearchBar from './SearchBar';
+
 class Table extends React.Component {
   constructor(props) {
     super(props);
@@ -56,6 +58,8 @@ class Table extends React.Component {
 
   render() {
     return (
+    <div>
+      <SearchBar userSearch={this.state.userSearch}/>
       <div className="table-responsive">
         <table id="users" className="table">
           <thead>
@@ -72,6 +76,7 @@ class Table extends React.Component {
           </tbody>
         </table>
       </div>
+    </div>
     );
   }
 }
