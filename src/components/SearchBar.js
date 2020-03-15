@@ -5,7 +5,7 @@ function SearchBar({ userSearch }) {
     <div className="container">
       <form className="col col-sm form-inline">
         <div className="form-group mb-5 mt-5">
-          <label className="mr-3 text-dark">Search by Name:</label>
+          <label className="mr-3 text-dark font-weight-bolder">Search by Name:</label>
           <input
             type="text"
             onChange={e => userSearch(e)}

@@ -23,4 +23,8 @@
     color: white;
   }
 
-  #users th:hover {cursor: pointer;}
+  .sort:hover {cursor: pointer;}
+
+  body {
+    background-color: gainsboro;
+  }

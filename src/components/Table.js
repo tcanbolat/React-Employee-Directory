@@ -15,7 +15,6 @@ class Table extends React.Component {
         console.log(event.target.value);
         const filter = event.target.value;
         const searchedResults = this.state.users.filter(item => {
-          // merge data together, then see if user input is anywhere inside
           let values = Object.values(item)
             .join("")
             .toLowerCase();
@@ -75,10 +74,10 @@ class Table extends React.Component {
           <thead>
             <tr>
               <th>image</th>
-              <th onClick={() => this.sortBy("firstname", this.state.searchedUser)}>Name</th>
-              <th onClick={() => this.sortBy("phone", this.state.searchedUser)}>Phone</th>
+              <th className="sort" onClick={() => this.sortBy("firstname", this.state.searchedUser)}>Name</th>
+              <th className="sort" onClick={() => this.sortBy("phone", this.state.searchedUser)}>Phone</th>
               <th>Email</th>
-              <th onClick={() => this.sortBy("dob", this.state.searchedUser)}>Date of Birth</th>
+              <th className="sort" onClick={() => this.sortBy("dob", this.state.searchedUser)}>Date of Birth</th>
             </tr>
           </thead>
           <tbody>
