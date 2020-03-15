@@ -4,8 +4,8 @@
 <p href="https://react-employeedirectory.herokuapp.com/" align="center">https://react-employeedirectory.herokuapp.com/</p>
 
 <h1 align="center">Description</h1>
-<p>Employee directory app built using React. The applications is broken down into components, component states that change based on user input.</p>
-<p> The employee database is pulled from https://randomuser.me/api/?results=200&nat=us and the results are renders into tablerows.</p>
+<p>Employee directory app built using React. The applications is broken down into components and component states that change based on user input.</p>
+<p> The employee database is pulled from https://randomuser.me/api/?results=200&nat=us and the results are renderded into tablerows.</p>
 <p>You can sort the rows by clicking on - NAME - PHONE - DOB - table headers.</p>
 <p>You can also search by employee name using the search bar. As you type, the user rows will dynamically change rendering the filtered users.<p/> 
 
