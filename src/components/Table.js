@@ -9,10 +9,20 @@ class Table extends React.Component {
     super(props);
     this.state = {
       users: [],
+      searchedUser: [],
       sortDir: "asc",
       userSearch: event => {
         console.log(event.target.value);
-
+        const filter = event.target.value;
+        const searchedResults = this.state.users.filter(item => {
+          // merge data together, then see if user input is anywhere inside
+          let values = Object.values(item)
+            .join("")
+            .toLowerCase();
+          return values.indexOf(filter.toLowerCase()) !== -1;
+        });
+        this.setState({ searchedUser: searchedResults });
+        console.log(searchedResults);
       }
     };
     this.sortBy = this.sortBy.bind(this);
@@ -20,7 +30,7 @@ class Table extends React.Component {
   componentDidMount() {
     API.randomUsers().then(answer => {
       console.log(answer.data.results);
-      this.setState({ users: answer.data.results });
+      this.setState({ users: answer.data.results, searchedUser: answer.data.results });
     });
   }
   sortBy(key, data) {
@@ -58,21 +68,21 @@ class Table extends React.Component {
 
   render() {
     return (
-    <div>
+    <div className="container">
       <SearchBar userSearch={this.state.userSearch}/>
       <div className="table-responsive">
         <table id="users" className="table">
           <thead>
             <tr>
               <th>image</th>
-              <th onClick={() => this.sortBy("firstname", this.state.users)}>Name</th>
-              <th onClick={() => this.sortBy("phone", this.state.users)}>Phone</th>
+              <th onClick={() => this.sortBy("firstname", this.state.searchedUser)}>Name</th>
+              <th onClick={() => this.sortBy("phone", this.state.searchedUser)}>Phone</th>
               <th>Email</th>
-              <th onClick={() => this.sortBy("dob", this.state.users)}>Date of Birth</th>
+              <th onClick={() => this.sortBy("dob", this.state.searchedUser)}>Date of Birth</th>
             </tr>
           </thead>
           <tbody>
-            <UserRows users={this.state.users} />
+            <UserRows users={this.state.searchedUser} />
           </tbody>
         </table>
       </div>
